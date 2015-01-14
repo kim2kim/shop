@@ -10,17 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.shop.utils.photo.CreateThumbnail;
 
 public class Dump {
-	private static transient final Log log = LogFactory
-			.getLog(Dump.class);
+	private static transient final Logger log = LoggerFactory.getLogger(Dump.class);
 	
 	private Resource adsPath;
 	private Resource facesPath;
@@ -157,8 +156,10 @@ public class Dump {
 		byte dataBytes[] = new byte[formDataLength];
 		int byteRead = 0;
 		int totalBytesRead = 0;
+		byte[] imageBytes = new byte[in.available()];
+		in.readFully(imageBytes);
 		
-		log.debug(in);
+		log.debug(new String(imageBytes));
 		
 		while (totalBytesRead < formDataLength) {
 			byteRead = in.read(dataBytes, totalBytesRead, formDataLength);
@@ -197,9 +198,9 @@ public class Dump {
 
         log.debug("dataBytes " + dataBytes + " startPos " + startPos + " endPos " + endPos + " endPos - startPos " + (endPos - startPos));
 		
-		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(root + saveFile)));
-		bos.write(dataBytes, startPos, (endPos - startPos));
-		bos.close();        
+        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(root + saveFile)))){
+    		bos.write(dataBytes, startPos, (endPos - startPos));
+        }
         
 		//fileOut.write(dataBytes);
 		
@@ -326,7 +327,7 @@ public class Dump {
 				new File(root + "glimpses/glimpse-" + saveFile),
 				ImageFileFilter.getExtension(saveFile), width, height);
 		return relativeRoot + "glimpses/glimpse-" + saveFile;
-	}
+	} 
 	
 	private static void createDirectory(String path) {
 		File faceDirectory = new File(path);

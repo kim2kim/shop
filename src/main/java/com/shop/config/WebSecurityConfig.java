@@ -25,12 +25,23 @@ import com.shop.model.User;
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
-    private SecurityProperties security;
-	
-	@Autowired
-	private DataSource datasource;   
+	private DataSource datasource;
+
+	/*
+    PasswordEncoder sha256PasswordEncoder = new PasswordEncoder() {
+        @Override
+        public String encode(CharSequence rawPassword) {
+            return Hashing.sha256().hashString(rawPassword, Charsets.UTF_8).toString();
+        }
+
+        @Override
+        public boolean matches(CharSequence rawPassword, String encodedPassword) {
+            return encodedPassword.equals(Hashing.sha256().hashString(rawPassword, Charsets.UTF_8).toString());
+        }
+    };
+    */
 	
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -40,6 +51,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
         auth.jdbcAuthentication().dataSource(datasource);
+ 
+        /*
+        if(!userDetailsService.userExists("khim.ung@verifi.com")) {
+            Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            User userDetails = new User("khim.ung@verifi.com", encoder.encode("password"), authorities);
+            userDetailsService.createUser(userDetails);
+        }
+        */
     }
 	
     @Override

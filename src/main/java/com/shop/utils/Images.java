@@ -9,13 +9,12 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Images {
-	private static transient final Log log = LogFactory
-	.getLog(Images.class);
+	private static transient final Logger log = LoggerFactory.getLogger(Images.class);
 
 	public static final String IM_PATH = "common/images/swing/";
 
