@@ -73,21 +73,22 @@ public class Neo4jRepositoryTest {
 		Member friend = new Member("jau@gmail.com");
 		friend.addFriend(A);
 		friend.addFriend(B);
+
+		Member returnfriend = template.save(friend);
+		
+		System.out.println("friend id " + returnfriend.getId());
+		
+		Assert.assertNotNull(returnfriend.getId());
+		Assert.assertEquals(2, returnfriend.getFriends().size());
 		
 		Member member = new Member("kim@gmail.com");
-		member.addFriend(friend);
-	
-		friend = template.save(friend);
-		System.out.println("friend id " + friend.getId());
+		member.addFriend(returnfriend);
+
 		member = template.save(member);
 		
-		System.out.println("member id " + member.getId());
-		
-		//Long found = 
 		//Page<Member> found = memberRepository.findByIdFriendsOfFriend(member.getId(), new PageRequest(0, 2));
 		Collection<Member> found = memberRepository.findByIdFriendsOfFriend(member.getId());
-		//System.out.println(found);
-		
+
 		Assert.assertNotNull(found);
 		for(Member m : found){
 			if(m != null){
