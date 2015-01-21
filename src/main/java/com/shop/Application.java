@@ -9,7 +9,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 @Configuration
-@ComponentScan(basePackages = "com.shop.config")
+@ComponentScan(basePackages = {"com.shop.config", "com.shop.web"})
 @Import(RepositoryRestMvcConfiguration.class)
 @EnableAutoConfiguration
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)

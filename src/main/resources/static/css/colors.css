@@ -1,0 +1,255 @@
+/*
+In this file you can predefine simle your color shame. We deliver two predefined.
+*******************************************************/
+
+/*
+Red Color Scheme
+******************************************************/
+
+.red h1,
+.red h2,
+.red h3,
+.red h4, 
+.red h5, 
+.red h6,
+.red .button-light,
+.red .project-info span i{
+    color: #C75A57;
+}
+
+.red a{
+   color:#DB7976;
+}
+
+.red .navbar .nav > li > a:hover, 
+.red .navbar .nav > .active > a{
+    border-top: 3px solid #C75A57;
+}
+
+.red .nav-pills > li > a:hover,
+.red .nav-pills > .active > a,
+.red .nav-pills > .red .active > a:hover,
+.red .nav-pills > .active > a:focus,
+
+.red .img-circle,
+.red .person .mask,
+.red .thumbnail .mask,
+.red #contact{
+    background: #C75A57;
+}
+
+.red .primary-bg{
+    background:#F2EDED;
+}
+
+.red .section .title{
+    border-bottom:1px solid #B5A1A1;
+}
+
+.red .footer{
+    background: #9E4846;
+}
+
+.red .button{
+    background-color: #B0524F;
+    border-left: solid 1px #B0524F;
+    -webkit-box-shadow: inset 0px 1px 0px #CF5C59, 0px 2px 0px 0px #964644;
+    -moz-box-shadow: inset 0px 1px 0px #CF5C59, 0px 2px 0px 0px #964644;
+    -o-box-shadow: inset 0px 1px 0px #CF5C59, 0px 2px 0px 0px #964644;
+    box-shadow: inset 0px 1px 0px #CF5C59, 0px 2px 0px 0px #964644;
+}
+
+.red .button:hover{
+    background:#D45E5B;
+}
+
+.red .button-light {
+    background:#fff;
+     -webkit-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    -moz-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    -o-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+}
+.red .button-light:hover {
+    background:#fafafa;
+}
+.red .button-dark {
+    background: #29383F;
+    -webkit-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    -moz-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    -o-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+}
+.button-dark:hover {
+    color:#fff;
+    background: #454D52;
+}
+
+.red .newsletter,
+.red .newsletter h2 {
+    background: #29383F;
+    color: #D7DDDE;
+}
+
+.red .newsletter .title {
+    border-bottom:1px solid #D7DDDE;
+}
+
+.red .price-table .column:hover{
+    -moz-box-shadow: 0px 0px 15px 6px #EBD6D5, inset 0 0 100px #eee;
+    -webkit-box-shadow: 0px 0px 15px 6px #EBD6D5, inset 0 0 100px #eee;
+    box-shadow: 0px 0px 15px 6px #EBD6D5, inset 0 0 100px #eee;
+}
+
+.red .skills li .bar{
+    background-color: #C75A57;
+   
+}
+.red .scrollup > a,
+.red .error{
+    color: #fff;
+}
+
+/*
+CSlider
+***************************************************************************/
+
+.red .da-slider .mask{
+    background: #C75A57;
+}
+
+.red .da-slide h2{
+    color:#fff;
+}
+
+.red .da-slide h4{
+    color:#29383F;
+}
+/*****************************************************
+Green Color Scheme
+******************************************************/
+
+.green h1,
+.green h2,
+.green h3,
+.green h4, 
+.green h5, 
+.green h6,
+.green .button-light,
+.green .project-info span i{
+    color: #1F7F5C;
+}
+
+.green a{
+   color:#1FC488;
+}
+
+.green .navbar .nav > li > a:hover, 
+.green .navbar .nav > .active > a{
+    border-top: 3px solid #1F7F5C;
+}
+
+.green .nav-pills > li > a:hover,
+.green .nav-pills > .active > a,
+.green .nav-pills > .green .active > a:hover,
+.green .nav-pills > .active > a:focus,
+
+.green .img-circle,
+.green .person .mask,
+.green .thumbnail .mask,
+.green #contact{
+    background: #1F7F5C;
+    
+}
+
+.green .primary-bg{
+    background:#EDF4EE;
+}
+
+.green .section .title{
+    border-bottom:1px solid #ACBFB8;
+}
+
+.green .footer{
+    background: #207355;
+}
+
+.green .button{
+    background-color: #41876E;
+    -webkit-box-shadow: inset 0px 1px 0px #1F7F5C, 0px 2px 0px 0px #19694C;
+    -moz-box-shadow: inset 0px 1px 0px #1F7F5C, 0px 2px 0px 0px #19694C;
+    -o-box-shadow: inset 0px 1px 0px #1F7F5C, 0px 2px 0px 0px #19694C;
+    box-shadow: inset 0px 1px 0px #1F7F5C, 0px 2px 0px 0px #19694C;
+}
+
+.green .button:hover{
+    background:#53AD8D;
+}
+
+.green .button-light {
+    background:#fff;
+     -webkit-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    -moz-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    -o-box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+    box-shadow: inset 0px 1px 0px #DBDBDB, 0px 2px 0px 0px #B3B1B1;
+}
+.green .button-light:hover {
+   
+    background:#fafafa;
+}
+.green .button-dark {
+    background: #29383F;
+    -webkit-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    -moz-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    -o-box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+    box-shadow: inset 0px 1px 0px #32444D, 0px 2px 0px 0px #172A33;
+}
+.green .button-dark:hover {
+    color:#fff;
+    background: #454D52;
+}
+
+.green .newsletter,
+.green .newsletter h2 {
+    background: #29383F;
+    color: #D7DDDE;
+}
+
+.green .newsletter .title {
+    border-bottom:1px solid #D7DDDE;
+}
+
+.green .price-table .column:hover{
+    -moz-box-shadow: 0px 0px 15px 6px #D1F0E4, inset 0 0 100px #eee;
+    -webkit-box-shadow: 0px 0px 15px 6px #D1F0E4, inset 0 0 100px #eee;
+    box-shadow: 0px 0px 15px 6px #D1F0E4, inset 0 0 100px #eee;
+}
+
+.green .skills li .bar{
+    background-color: #1F7F5C;
+   
+}
+.green .scrollup > a,
+.green .error{
+    color: #fff;
+}
+
+.green .contact h1{
+    color: #fff;
+}
+
+/*
+CSlider
+***************************************************************************/
+
+.green .da-slider .mask{
+    background: #1F7F5C;
+}
+
+.green .da-slide h2{
+    color:#fff;
+}
+
+.green .da-slide h4{
+    color:#29383F;
+}
