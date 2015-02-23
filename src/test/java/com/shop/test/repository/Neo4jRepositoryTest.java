@@ -33,6 +33,9 @@ public class Neo4jRepositoryTest {
 
 	@Autowired Neo4jTemplate template;
 
+	/**
+	 * This works when using the default template query
+	 */
 	@Test
 	@Transactional 
 	public void testSave(){
@@ -50,6 +53,9 @@ public class Neo4jRepositoryTest {
 		
 	}
 	
+	/**
+	 * this works when using the default template query
+	 */
 	@Test
 	public void testRepository(){
 		Member friend = new Member("jau@gmail.com");
@@ -65,6 +71,9 @@ public class Neo4jRepositoryTest {
 		Assert.assertEquals(friend.getId(), found.getFriends().iterator().next().getId());
 	}
 	
+	/**
+	 * this does not work due to trying to write a neo4j cypher query
+	 */
 	@Test
 	public void testQuery(){
 		Member A = new Member("test@gmail.com");
@@ -77,14 +86,19 @@ public class Neo4jRepositoryTest {
 		Member returnfriend = template.save(friend);
 		
 		System.out.println("friend id " + returnfriend.getId());
+		System.out.println("A id " + A.getId());
+		System.out.println("B id " + B.getId());
 		
 		Assert.assertNotNull(returnfriend.getId());
 		Assert.assertEquals(2, returnfriend.getFriends().size());
 		
 		Member member = new Member("kim@gmail.com");
 		member.addFriend(returnfriend);
+		Assert.assertEquals(1, member.getFriends().size());
 
 		member = template.save(member);
+		
+		System.out.println("id " + member.getId());
 		
 		//Page<Member> found = memberRepository.findByIdFriendsOfFriend(member.getId(), new PageRequest(0, 2));
 		Collection<Member> found = memberRepository.findByIdFriendsOfFriend(member.getId());

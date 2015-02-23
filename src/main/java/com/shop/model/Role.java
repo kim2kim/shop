@@ -23,6 +23,8 @@ import org.springframework.security.core.GrantedAuthority;
  *         Version by Dan Kibler dan@getrolling.com
  *         Extended to implement Acegi GrantedAuthority interface
  *         by David Carter david@carter.net
+ *         
+ *         Named queries are bad because they are not cachable and developers should avoid them
  */
 @Entity
 @Table(name = "role")

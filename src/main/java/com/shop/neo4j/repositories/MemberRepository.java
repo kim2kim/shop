@@ -27,7 +27,8 @@ public interface MemberRepository extends GraphRepository<Member> {
 	//@Query("MATCH (me)-[f:FRIEND]->(friend) WHERE id(me) = {id} RETURN labels(friend) as label") // causes entity is required; it must not be null
 	//@Query("MATCH path=(me:Member {id: '{id}'})-[f:FRIEND]->(friend:Member) WITH [x in nodes(path) | id(x) AS friends] WHERE id(me) in friends MATCH friends-[ff:FRIEND]->(fof:Member) return fof") // expect Node but was Path
 	//@Query("MATCH (me:Member { id: '{id}' })-[f:FRIEND*]->(friend_of_friend:Member) WHERE NOT (me)-[ff:FRIEND]-(friend_of_friend) RETURN labels(friend_of_friend) as label")
-	@Query("MATCH (me:Member { id: '{id}' })-[f:FRIEND]->(friend:Member)-[ff:FRIEND]->(fof:Member) WHERE NOT (me)-[ff]->(fof) RETURN labels(fof) as label order by fof.email")
+	//@Query("MATCH (me:Member { id: {id} })-[f:FRIEND]->(friend:Member)-[ff:FRIEND]->(fof:Member) WHERE NOT (me)-[ff]->(fof) RETURN labels(fof) as label") // order by fof.email")
+	@Query("MATCH (me:Member { id: {id} })-[f:FRIEND]->(friend:Member)-[ff:FRIEND]->(fof:Member) WHERE NOT (me)-[ff]->(fof) RETURN labels(fof) as label") // order by fof.email")
 	public Collection<Member> findByIdFriendsOfFriend(@Param("id") Long id);
 	
     // returns the node with id equal to idOfMovie parameter  

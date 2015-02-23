@@ -3,6 +3,7 @@ package com.shop.test.repository;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -28,6 +29,15 @@ public class PersonRepositoryTest {
 		person.setFirstName("khim");
 		person.setLastName("ung");
 		person.setActive(true);
-		personRepository.save(person);
+		
+		Person expected = personRepository.save(person);
+		Assert.assertNotNull(expected);
+		
+		System.out.println(person.getId());
+		System.out.println(expected.getId());
+		
+		Person found = personRepository.findOne(expected.getId());
+		Assert.assertNotNull(found);
+		Assert.assertNotNull(found);
 	}
 }

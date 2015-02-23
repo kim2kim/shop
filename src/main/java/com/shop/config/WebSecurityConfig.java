@@ -53,10 +53,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(datasource);
  
         /*
-        if(!userDetailsService.userExists("khim.ung@verifi.com")) {
+        if(!userDetailsService.userExists("khimung@gmail.com")) {
             Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            User userDetails = new User("khim.ung@verifi.com", encoder.encode("password"), authorities);
+            User userDetails = new User("khimung@gmail.com", encoder.encode("password"), authorities);
             userDetailsService.createUser(userDetails);
         }
         */

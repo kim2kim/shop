@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -22,11 +23,8 @@ import javax.persistence.Version;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -73,6 +71,10 @@ public class User extends BaseObject implements Serializable, UserDetails {
     public User(final String username, String encodedPassword, Set<GrantedAuthority> authorities) {
         this.username = username;
         this.password = encodedPassword;
+        this.email = username;
+        this.accountExpired = false;
+        this.credentialsExpired = false;
+        this.accountLocked = false;
         for(GrantedAuthority au : authorities){
         	Role role = new Role();
         	role.setName(au.getAuthority());
@@ -106,7 +108,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
         return address;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id")},

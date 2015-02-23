@@ -1,7 +1,11 @@
 package com.shop.web;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shop.model.User;
+import com.shop.service.UserRepository;
 
 @Controller
 public class HomeController {
+	
+	@Resource
+	private UserRepository userRepository;
 
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -21,7 +29,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(){
+	public String login(HttpServletRequest request){
+		Iterable<User> col = userRepository.findAll();
+		
+		long count = userRepository.count();
+		System.out.println("count " + count);
+		request.setAttribute("userCount", count);
+		//model.addAttribute("userCount", count);
 		return "login";
 	}
 
