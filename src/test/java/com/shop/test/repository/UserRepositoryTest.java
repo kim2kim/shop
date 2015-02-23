@@ -50,19 +50,8 @@ public class UserRepositoryTest {
 		testUser = userRepository.findOne(new Long("1"));
 		Assert.assertNotNull(testUser);
 	}
-	
-	/*
-	@Bean(name = "dbUnitDatabaseConnection")
-	public DatabaseDataSourceConnectionFactoryBean dbunitDatabaseConnection(DataSource datasource){
-		DatabaseDataSourceConnectionFactoryBean dbUnitDBConnection = new DatabaseDataSourceConnectionFactoryBean();
-		dbUnitDBConnection.setDataSource(datasource);
-		dbUnitDBConnection.setSchema("testshop");
-		return dbUnitDBConnection;
-	}
-*/
 
 	@Test
-	
 	public void testSaveUser() {
 		User found = userRepository.findByUsernameAndPassword(testUser.getUsername(), testUser.getPassword());
 

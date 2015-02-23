@@ -3,19 +3,20 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-     <!--   
-	<persistence-unit name="myshopnshare-persistence-unit" transaction-type="RESOURCE-LOCAL">
+     
+	<persistence-unit name="myshopnshare-persistence-unit" >
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.shop.domain.DomainObject</class> 
 		<class>com.shop.domain.Person</class>
 		<class>com.shop.model.User</class>
 		<class>com.shop.model.Role</class>
 	</persistence-unit>
-      
-
+<!--   
    <persistence-unit name="spring-jpa">
+   		<class name="com.shop.domain.DomainObject" abstract="true">
 		<class>com.shop.domain.Person</class>
 		<class>com.shop.model.User</class>
 		<class>com.shop.model.Role</class>
    </persistence-unit>
---> 
+ -->
 </persistence>

@@ -1,15 +1,26 @@
 package com.shop.config;
 
+import java.util.Map;
+
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.boot.orm.jpa.SpringNamingStrategy;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -50,6 +61,7 @@ public class JpaConfig  implements EnvironmentAware {
 
 		return ds;
 	}
+
 	/*
 	@Bean
 	public LocalSessionFactoryBean sessionFactory(){
@@ -58,6 +70,7 @@ public class JpaConfig  implements EnvironmentAware {
 		factory.getHibernateProperties().setProperty("hibernate.dialect", hibernateDialect);
 		return factory;
 	}
+	*/
 	
 	@Bean
 	public JpaVendorAdapter hibernateJpaVendorAdapter(){
@@ -77,7 +90,8 @@ public class JpaConfig  implements EnvironmentAware {
         entityManagerFactoryBean.setPackagesToScan("com.shop.domain", "com.shop.model");
         entityManagerFactoryBean.getJpaPropertyMap().putAll(this.environment.getSubProperties("properties."));
         Map<String, Object> properties = entityManagerFactoryBean.getJpaPropertyMap();
-        properties.put("hibernate.ejb.naming_strategy", this.environment.getProperty("hibernate.naming-strategy", SpringNamingStrategy.class.getName()));
+        //properties.put("hibernate.ejb.naming_strategy", this.environment.getProperty("hibernate.naming-strategy", SpringNamingStrategy.class.getName()));
+        properties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
         //properties.put("hibernate.hbm2ddl.auto", this.environment.getProperty("hibernate.ddl-auto", "none"));
         return entityManagerFactoryBean;
   
@@ -89,5 +103,5 @@ public class JpaConfig  implements EnvironmentAware {
       tm.setEntityManagerFactory(emf);
       return tm;
     }
-	*/
+
 }

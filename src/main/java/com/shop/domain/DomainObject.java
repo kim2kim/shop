@@ -16,7 +16,8 @@ import org.apache.log4j.Logger;
 import com.shop.utils.FormatedToStringStyle;
 
 @MappedSuperclass
-public class DomainObject implements Serializable {
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class DomainObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
